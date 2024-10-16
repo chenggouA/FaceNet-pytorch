@@ -1,0 +1,57 @@
+
+
+
+train:
+  batch_size: 32
+  epoch: 20
+  num_workers: 8
+  device: cuda
+  momentum: 0.9
+  Init_lr: 0.001            
+  optimizer: sgd # sgd, adam
+  txt_file_path: D:\code\dataset\webface\train.txt
+  lr_decay_type: cos # cos, step
+  nbs: 16 # 基准batch_size大小
+  output: output  # 模型输出位置
+  save_interval: 1 # 模型保存间隔
+  # resume: output\20241015_170721\best.pth
+  model_data: model_data\mobilenet_v2-b0353104.pth
+  loss_type: TripletLoss # ContrastLoss, TripletLoss
+
+  aux_classifier:
+    use: false
+    num_classes: 10575
+
+  lfw:
+      path: D:\code\dataset\lfw  # 使用lfw进行验证
+      pair_path: ./lfw_pair.txt
+
+backbone: mobilenet_v2 # Inception_resnet_v1, mobilenet_v2
+seed: 42
+
+predict:
+  device: cuda
+  mode: image
+  image_path: img/person.jpg
+  model_path: output\20241009_001559\best.pth
+  num_workers: 4
+
+  batch_size: 4
+
+
+input_shape: 
+  - 128
+  - 128
+
+
+eval:
+    dataset_path: D:\code\dataset\face\all
+    device: cuda
+    model_path: output\20241012_233443\epoch_4.pth
+    batch_size: 16
+    num_workers: 8
+
+
+
+
+    
