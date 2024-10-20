@@ -43,9 +43,7 @@ class FaceNet(nn.Module):
     def forward(self, x):
         x = self.backbone(x)
         x = self.avgpool(x)
-        x = self.dropout(x)
         last = x.view(x.size(0), -1)
-        
         last = self.linear(last)
         before_normalize = self.last_bn(last)
         vector = F.normalize(before_normalize, p=2, dim=1) # l2标准化
