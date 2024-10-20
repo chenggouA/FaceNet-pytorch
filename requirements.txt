@@ -1,0 +1,62 @@
+absl-py==2.1.0
+Brotli @ file:///C:/b/abs_3d36mno480/croot/brotli-split_1714483178642/work
+cachetools==5.5.0
+certifi @ file:///C:/b/abs_1fw_exq1si/croot/certifi_1725551736618/work/certifi
+charset-normalizer @ file:///croot/charset-normalizer_1721748349566/work
+colorama==0.4.6
+contourpy==1.1.1
+cycler==0.12.1
+faiss-cpu==1.8.0
+fonttools==4.54.1
+google-auth==2.35.0
+google-auth-oauthlib==0.4.6
+grpcio==1.66.2
+idna @ file:///C:/b/abs_aad84bnnw5/croot/idna_1714398896795/work
+importlib_metadata==8.5.0
+importlib_resources==6.4.5
+joblib==1.3.2
+kiwisolver==1.4.7
+llvmlite==0.41.1
+Markdown==3.5.2
+MarkupSafe==2.1.5
+matplotlib==3.7.5
+numba==0.58.1
+numpy @ file:///D:/bld/numpy_1687808486521/work
+oauthlib==3.2.2
+opencv-python==4.10.0.84
+packaging==24.1
+pandas==2.0.3
+pillow @ file:///C:/b/abs_32o8er3uqp/croot/pillow_1721059447598/work
+progress==1.6
+protobuf==5.28.2
+py-spy==0.3.14
+pyaml==24.9.0
+pyasn1==0.5.1
+pyasn1-modules==0.3.0
+pycocotools==2.0.7
+pyparsing==3.1.4
+PySocks @ file:///C:/ci/pysocks_1605287845585/work
+python-dateutil==2.9.0.post0
+pytz==2024.2
+PyYAML==6.0.2
+requests @ file:///C:/b/abs_9frifg92q2/croot/requests_1721410901096/work
+requests-oauthlib==1.4.0
+rsa==4.9
+scikit-learn==1.3.2
+scipy==1.10.1
+seaborn==0.13.2
+six==1.16.0
+tensorboard==2.12.0
+tensorboard-data-server==0.7.2
+tensorboard-plugin-wit==1.8.1
+threadpoolctl==3.5.0
+torch==1.11.0
+torchaudio==0.11.0
+torchvision==0.12.0
+tqdm==4.66.5
+typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1717802530399/work
+tzdata==2024.2
+urllib3 @ file:///C:/b/abs_9a_f8h_bn2/croot/urllib3_1727769836930/work
+Werkzeug==3.0.4
+win-inet-pton @ file:///C:/ci/win_inet_pton_1605306167264/work
+zipp==3.20.2
