@@ -15,7 +15,7 @@ train:
   output: output  # 模型输出位置
   save_interval: 3 # 模型保存间隔
   
-  resume: output\20241019_160311\best.pth
+  # resume: output\20241019_160311\best.pth
   model_data: model_data\mobilenet_v2-b0353104.pth
   loss_type: TripletLoss # ContrastLoss, TripletLoss
 
@@ -27,7 +27,7 @@ train:
       path: D:\code\dataset\lfw  # 使用lfw进行验证
       pair_path: ./lfw_pair.txt
 
-backbone: Inception_resnet_v1 # Inception_resnet_v1, mobilenet_v2
+backbone: mobilenet_v2 # Inception_resnet_v1, mobilenet_v2
 seed: 42
 
 predict:
