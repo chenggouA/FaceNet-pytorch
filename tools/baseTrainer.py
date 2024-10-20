@@ -51,7 +51,7 @@ class base(nn.Module):
         return losses
 
     def model_forward(self, input: Tensor):
-        return self.model(input.to(self.device))
+        return self.model(input)
     def forward(self, input: Tensor, *args, **kwargs):
         
         output = self.model(input.to(self.device))

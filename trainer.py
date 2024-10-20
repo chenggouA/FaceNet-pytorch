@@ -1,6 +1,6 @@
 
 from tools.baseTrainer import base
-
+from torch import Tensor
 
 class Trainer(base):
     
@@ -15,6 +15,15 @@ class Trainer(base):
         self.dist_loss = 0.0
         if self.aux_classifier:
             self.cls_loss = 0.0
+
+
+    def model_forward(self, input: Tensor):
+        output = super().model_forward(input)
+        if isinstance(output, tuple):
+            return output[0]
+        
+        return output
+
     def forward(self, imgs, *args, **kwargs):
         
         outputs = self.model(imgs)

@@ -1,4 +1,4 @@
-from tools.loss import ContrastiveLoss, triplet_loss
+from tools.loss import ContrastLoss, triplet_loss
 from torch import nn, Tensor
 import torch
 
@@ -10,8 +10,8 @@ class ComputeLoss(nn.Module):
         self.cls_loss = nn.CrossEntropyLoss()
         if loss_type == "TripletLoss":
             self.vec_loss = triplet_loss()
-        elif loss_type == "ContrastiveLoss":
-            self.vec_loss = ContrastiveLoss()
+        elif loss_type == "ContrastLoss":
+            self.vec_loss = ContrastLoss()
         self.aux_classifier = aux_classifier
         
 

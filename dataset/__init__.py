@@ -10,16 +10,20 @@ def FaceNet_dataset_collate(batch):
     for img, label in batch:
         images.append(img)
         labels.append(label)
-
-    images1 = np.array(images)[:, 0, :, :, :]
-    images2 = np.array(images)[:, 1, :, :, :]
-    images3 = np.array(images)[:, 2, :, :, :]
-    images = np.concatenate([images1, images2, images3], 0)
     
-    labels1 = np.array(labels)[:, 0]
-    labels2 = np.array(labels)[:, 1]
-    labels3 = np.array(labels)[:, 2]
-    labels = np.concatenate([labels1, labels2, labels3], 0)
+    images = np.array(images)
+    labels = np.array(labels)
+    
+    num_image = images.shape[1]
+    image_arr = []
+    label_arr = []
+    for item in range(num_image):
+        image_arr.append(images[:, item, ...])
+        label_arr.append(labels[:, item, ...])
+
+    images = np.concatenate(image_arr, 0)
+
+    labels = np.concatenate(label_arr, 0)
     
     images  = torch.from_numpy(np.array(images)).type(torch.FloatTensor)
     labels  = torch.from_numpy(np.array(labels)).long()

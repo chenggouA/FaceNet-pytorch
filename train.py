@@ -87,7 +87,7 @@ def train(config: Config, output, writer: SummaryWriter, train_dataLoader, lfw_d
     
     for epoch in range(start_epoch, EPOCH):
         
-        fit_one_epoch(writer, trainer, train_dataLoader, epoch, EPOCH, cuda, epoch_steps)
+        # fit_one_epoch(writer, trainer, train_dataLoader, epoch, EPOCH, cuda, epoch_steps)
         acc = eval(trainer, lfw_dataLoader, device, writer, epoch)
         save_files = {
             'model': model.state_dict(),

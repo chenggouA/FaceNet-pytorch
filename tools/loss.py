@@ -87,17 +87,17 @@ class FocalLoss(nn.Module):
 
 
 
-class ContrastiveLoss(nn.Module):
-    def __init__(self, margin=2.0):
+class ContrastLoss(nn.Module):
+    def __init__(self, margin=2):
         '''
             对比损失函数
         '''
-        super(ContrastiveLoss, self).__init__()
+        super(ContrastLoss, self).__init__()
         self.margin = margin
 
     def forward(self, output, labels):
         output1, output2 = output.vsplit(2)
-        label_1, label_2 = labels.vsplit(2)
+        label_1, label_2 = labels.chunk(2)
         label = (label_1 == label_2).long()
 
         num_sample = output1.shape[0] // 2  # 保证样本对的数量
@@ -106,8 +106,9 @@ class ContrastiveLoss(nn.Module):
         euclidean_distance = F.pairwise_distance(output1, output2)
 
         # 筛选条件：正样本（label==1）距离 > 1.0，负样本（label==0）距离 < margin
-        mask = ((label == 1) & (euclidean_distance > 1.0)) | ((label == 0) & (euclidean_distance < self.margin))
-        
+        # mask = ((label == 1) & (euclidean_distance > (self.margin / 2))) | ((label == 0) & (euclidean_distance < (self.margin / 2)))
+        mask = ((label == 1) | (label == 0))
+
         # 当筛选出的样本数量不足时，从未满足条件的样本中随机采样补足
         if mask.sum() < num_sample:
             # 获取未满足条件的索引

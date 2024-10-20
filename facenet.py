@@ -15,7 +15,7 @@ def init_linear(layer):
 
 class FaceNet(nn.Module):
 
-    def __init__(self, backbone, aux_classifier, output_channels=128, num_classes = 0):
+    def __init__(self, backbone, aux_classifier=False, output_channels=128, num_classes=0):
         super().__init__()
         if backbone == "Inception_resnet_v1":
             self.backbone = Inception_ResNet(output_channels)
@@ -49,7 +49,6 @@ class FaceNet(nn.Module):
         last = x.view(x.size(0), -1)
         
         vector = self.linear(last)
-        # vector = torch.sigmoid(vector) # 
         vector = F.normalize(vector, p=2, dim=1) # l2标准化
         if self.aux_classifier:
             cls = self.classifier(last)
